@@ -12,16 +12,20 @@ module.exports = {
       return res.json(user);
     },
     async store(req, res){
+
+        console.log(req.file);
       
         const nome = req.body.nome;
         const senha = req.body.senha;
         const email = req.body.email;
         const status = req.body.status;
         const idade = req.body.idade;
+        const thumb = req.file.filename;
 
+        //Busca se já tem algum com esse email
         let user = await User.findOne({email});
         if(!user){
-            user = await User.create({nome,senha,email,status,idade});
+            user = await User.create({nome,senha,email,status,idade,thumb});
         }
         return res.json(user);
     },
