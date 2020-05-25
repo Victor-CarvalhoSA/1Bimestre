@@ -25,6 +25,7 @@ routes.get('/',function(req, res){
 
 //este exemplo de get onde traz um usuario com base no id passado
 routes.get('/users', UserController.index);
+routes.post('/users/login', UserController.login);
 routes.get('/users/:id', UserController.show);
 routes.post('/users', upload.single('thumb'), UserController.store);
 routes.put('/users/:id', UserController.update);

@@ -6,6 +6,16 @@ module.exports = {
         let users = await User.find();
       return res.json(users);
     },
+
+    async login(req,res){
+        console.log ('busca usuario', req.body.email,req.body.senha)
+        let users = await User.findOne({
+                                    email : req.body.email,
+                                    senha : req.body.senha
+        });
+        return res.json({users});
+    },
+
     async show(req, res){
 
         let user = await User.findOne({_id : req.params_id});
