@@ -10,6 +10,7 @@ const VehicleController = require('./Controller/VehicleController');
 const ModelController = require('./Controller/ModelController');
 const BrandController = require('./Controller/BrandController');
 const Address = require('./Controller/Adress');
+const MateriaController    = require('./Controller/Materia');
 
 const routes = express.Router();
 const upload = multer(UploadConfig);
@@ -61,6 +62,12 @@ routes.get('/vehicle/:id', VehicleController.show);
 routes.post('/vehicle', upload.single('thumb'), VehicleController.store);
 routes.put('/vehicle/:id', VehicleController.update);
 routes.delete('/vehicle/:id',VehicleController.destroy);
+
+routes.get('/materia',          MateriaController.index);
+routes.get('/materia/:id',      MateriaController.show);
+routes.post('/materia',         MateriaController.store);
+routes.put('/materia/:id',      MateriaController.update);
+routes.delete('/materia/:id',   MateriaController.destroy);
 
 routes.get('/adress', Address.index);
 routes.get('/adress/:id', Address.show);
