@@ -11,6 +11,7 @@ const ModelController = require('./Controller/ModelController');
 const BrandController = require('./Controller/BrandController');
 const Address = require('./Controller/Adress');
 const MateriaController    = require('./Controller/Materia');
+const NotaController    = require('./Controller/Notas');
 
 const routes = express.Router();
 const upload = multer(UploadConfig);
@@ -74,5 +75,11 @@ routes.get('/adress/:id', Address.show);
 routes.post('/adress', Address.store);
 routes.put('/adress/:id', Address.update);
 routes.delete('/adress/:id',Address.destroy);
+
+routes.get('/nota', NotaController.index);
+routes.get('/nota/:id', NotaController.show);
+routes.post('/nota', NotaController.store);
+routes.put('/nota/:id', NotaController.update);
+routes.delete('/nota/:id',NotaController.destroy);
 
 module.exports = routes;
