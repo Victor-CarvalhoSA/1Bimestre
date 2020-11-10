@@ -11,6 +11,7 @@ const ModelController = require('./Controller/ModelController');
 const BrandController = require('./Controller/BrandController');
 const Address = require('./Controller/Adress');
 const MateriaController    = require('./Controller/Materia');
+const ProtocoloController    = require('./Controller/Protocolo');
 const NotaController    = require('./Controller/Notas');
 
 const routes = express.Router();
@@ -70,16 +71,22 @@ routes.post('/materia',         MateriaController.store);
 routes.put('/materia/:id',      MateriaController.update);
 routes.delete('/materia/:id',   MateriaController.destroy);
 
+routes.get('/protocolo',          ProtocoloController.index);
+routes.get('/protocolo/:id',      ProtocoloController.show);
+routes.post('/protocolo',         ProtocoloController.store);
+routes.put('/protocolo/:id',      ProtocoloController.update);
+routes.delete('/protocolo/:id',   ProtocoloController.destroy);
+
 routes.get('/adress', Address.index);
 routes.get('/adress/:id', Address.show);
 routes.post('/adress', Address.store);
 routes.put('/adress/:id', Address.update);
 routes.delete('/adress/:id',Address.destroy);
 
-routes.get('/nota', NotaController.index);
-routes.get('/nota/:id', NotaController.show);
-routes.post('/nota', NotaController.store);
-routes.put('/nota/:id', NotaController.update);
-routes.delete('/nota/:id',NotaController.destroy);
+//routes.get('/nota', NotaController.index);
+//routes.get('/nota/:id', NotaController.show);
+//routes.post('/nota', NotaController.store);
+//routes.put('/nota/:id', NotaController.update);
+//routes.delete('/nota/:id',NotaController.destroy);
 
 module.exports = routes;
